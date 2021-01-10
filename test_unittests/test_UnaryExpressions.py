@@ -11,3 +11,23 @@ class TestSingleNumberExpression(unittest.TestCase):
     expected = 1
     # Assert
     self.assertEqual(actual, expected)
+  
+  def test_Input_5_Returns_5(self):
+    # Arrange
+    num1 = 5
+    unaryExpression = SingleNumberExpression(num1)
+    # Act
+    actual = unaryExpression.evaluate()
+    expected = 5
+    # Assert
+    self.assertEqual(actual, expected)
+  
+  def test_Input_Neg2Point5_Returns_Neg2Point5(self):
+    # Arrange
+    num1 = -2.5
+    unaryExpression = SingleNumberExpression(num1)
+    # Act
+    actual = unaryExpression.evaluate()
+    expected = -2.5
+    # Assert
+    self.assertEqual(actual, expected)

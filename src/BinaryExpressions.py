@@ -1,12 +1,47 @@
+from UnaryExpressions import SingleNumberExpression
 
+class AdditionExpression:
+  leftExpression = SingleNumberExpression(0)
+  rightExpression = SingleNumberExpression(0)
 
-class AdditiveExpression:
-  leftExpression = 0
-  rightExpression = 0
-
-  def __init__(self, num1, num2):
-    self.leftExpression = num1
-    self.rightExpression = num2
+  def __init__(self, inputLeftExpression, inputRightExpression):
+    self.leftExpression = inputLeftExpression
+    self.rightExpression = inputRightExpression
   
   def evaluate(self):
-    return self.leftExpression + self.rightExpression
+    return self.leftExpression.evaluate() + self.rightExpression.evaluate()
+
+class SubtractionExpression:
+  leftExpression = SingleNumberExpression(0)
+  rightExpression = SingleNumberExpression(0)
+
+  def __init__(self, inputLeftExpression, inputRightExpression):
+    self.leftExpression = inputLeftExpression
+    self.rightExpression = inputRightExpression
+  
+  def evaluate(self):
+    return self.leftExpression.evaluate() - self.rightExpression.evaluate()
+
+class MultiplicationExpression:
+  leftExpression = SingleNumberExpression(0)
+  rightExpression = SingleNumberExpression(0)
+
+  def __init__(self, inputLeftExpression, inputRightExpression):
+    self.leftExpression = inputLeftExpression
+    self.rightExpression = inputRightExpression
+
+  def evaluate(self):
+    return self.leftExpression.evaluate() * self.rightExpression.evaluate()
+
+class DivisionExpression:
+  leftExpression = SingleNumberExpression(0)
+  rightExpression = SingleNumberExpression(0)
+
+  def __init__(self, inputLeftExpression, inputRightExpression):
+    self.leftExpression = inputLeftExpression
+    self.rightExpression = inputRightExpression
+
+  def evaluate(self):
+    return self.leftExpression.evaluate() / self.rightExpression.evaluate()
+
+
