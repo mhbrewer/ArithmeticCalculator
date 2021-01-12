@@ -1,6 +1,7 @@
 from UnaryExpressions import SingleNumberExpression
+from IExpression import IExpression
 
-class AdditionExpression:
+class IBinaryExpression(IExpression):
   leftExpression = SingleNumberExpression(0)
   rightExpression = SingleNumberExpression(0)
 
@@ -8,39 +9,22 @@ class AdditionExpression:
     self.leftExpression = inputLeftExpression
     self.rightExpression = inputRightExpression
   
+  def evaluate(self):
+    pass
+
+class AdditionExpression(IBinaryExpression):
   def evaluate(self):
     return self.leftExpression.evaluate() + self.rightExpression.evaluate()
 
-class SubtractionExpression:
-  leftExpression = SingleNumberExpression(0)
-  rightExpression = SingleNumberExpression(0)
-
-  def __init__(self, inputLeftExpression, inputRightExpression):
-    self.leftExpression = inputLeftExpression
-    self.rightExpression = inputRightExpression
-  
+class SubtractionExpression(IBinaryExpression):
   def evaluate(self):
     return self.leftExpression.evaluate() - self.rightExpression.evaluate()
 
-class MultiplicationExpression:
-  leftExpression = SingleNumberExpression(0)
-  rightExpression = SingleNumberExpression(0)
-
-  def __init__(self, inputLeftExpression, inputRightExpression):
-    self.leftExpression = inputLeftExpression
-    self.rightExpression = inputRightExpression
-
+class MultiplicationExpression(IBinaryExpression):
   def evaluate(self):
     return self.leftExpression.evaluate() * self.rightExpression.evaluate()
 
-class DivisionExpression:
-  leftExpression = SingleNumberExpression(0)
-  rightExpression = SingleNumberExpression(0)
-
-  def __init__(self, inputLeftExpression, inputRightExpression):
-    self.leftExpression = inputLeftExpression
-    self.rightExpression = inputRightExpression
-
+class DivisionExpression(IBinaryExpression):
   def evaluate(self):
     return self.leftExpression.evaluate() / self.rightExpression.evaluate()
 
