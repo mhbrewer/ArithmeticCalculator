@@ -1,3 +1,4 @@
+from multipledispatch import dispatch
 from UnaryExpressions import SingleNumberExpression
 from IExpression import IExpression
 
@@ -5,6 +6,7 @@ class IBinaryExpression(IExpression):
   leftExpression = SingleNumberExpression(0)
   rightExpression = SingleNumberExpression(0)
 
+  @dispatch(IExpression, IExpression)
   def __init__(self, inputLeftExpression, inputRightExpression):
     self.leftExpression = inputLeftExpression
     self.rightExpression = inputRightExpression
