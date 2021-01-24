@@ -9,6 +9,6 @@ Planned Functionality:
   And the app with evaluate the expression, in this case returning 15.
 
 Needs:
-  1. Error + edge testing
-  2. Parser
+  1. (More) Error + edge testing
+  2. Expression Evaluation
   3. Console interface
