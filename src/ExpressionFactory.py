@@ -8,14 +8,14 @@ from UnaryExpressions import SingleNumberExpression
 
 class ExpressionFactory:
   @dispatch(IExpression, str, IExpression)
-  def CreateExpression(self, leftNum, operatorSign, rightNum):
+  def CreateExpression(self, leftExp, operatorSign, rightExp):
     if(operatorSign == "+"):
-      return AdditionExpression(leftNum, rightNum)
+      return AdditionExpression(leftExp, rightExp)
     if(operatorSign == "-"):
-      return SubtractionExpression(leftNum, rightNum)
+      return SubtractionExpression(leftExp, rightExp)
     if(operatorSign == "/"):
-      return DivisionExpression(leftNum, rightNum)
-    return MultiplicationExpression(leftNum, rightNum)
+      return DivisionExpression(leftExp, rightExp)
+    return MultiplicationExpression(leftExp, rightExp)
   
   @dispatch(int)
   def CreateExpression(self, inputNum):
@@ -24,3 +24,9 @@ class ExpressionFactory:
   @dispatch(float)
   def CreateExpression(self, inputNum):
     return SingleNumberExpression(inputNum)
+  
+  @dispatch(str)
+  def CreateExpression(self, inputNum):
+    if inputNum.isnumeric():
+      return SingleNumberExpression(float(inputNum))
+    return SingleNumberExpression(0)
