@@ -128,6 +128,60 @@ class TestComplexRawExpression(unittest.TestCase):
     expected = 10
     # Assert
     self.assertEqual(actual, expected)
+  
+  def test_Evaluate_2LParen2Plus3RParen_Returns_10(self):
+    # Arrange
+    entireExpression = RawExpression("2(2+3)")
+    # Act
+    actual = entireExpression.evaluate()
+    expected = 10
+    # Assert
+    self.assertEqual(actual, expected)
+  
+  def test_Evaluate_LParen2Plus3RParenTimes2_Returns_10(self):
+    # Arrange
+    entireExpression = RawExpression("(2+3)*2")
+    # Act
+    actual = entireExpression.evaluate()
+    expected = 10
+    # Assert
+    self.assertEqual(actual, expected)
+  
+  def test_Evaluate_LParen2Plus3RParen2_Returns_10(self):
+    # Arrange
+    entireExpression = RawExpression("(2+3)2")
+    # Act
+    actual = entireExpression.evaluate()
+    expected = 10
+    # Assert
+    self.assertEqual(actual, expected)
+  
+  def test_Evaluate_TwoParentheticalsTimes_Returns_10(self):
+    # Arrange
+    entireExpression = RawExpression("(2+3)*(1+1)")
+    # Act
+    actual = entireExpression.evaluate()
+    expected = 10
+    # Assert
+    self.assertEqual(actual, expected)
+  
+  def test_Evaluate_TwoParentheticalsNoTimes_Returns_10(self):
+    # Arrange
+    entireExpression = RawExpression("(2+3)(1+1)")
+    # Act
+    actual = entireExpression.evaluate()
+    expected = 10
+    # Assert
+    self.assertEqual(actual, expected)
+  
+  def test_Evaluate_1PlusParentheticalPlus1_Returns_7(self):
+    # Arrange
+    entireExpression = RawExpression("1+(2+3)+1")
+    # Act
+    actual = entireExpression.evaluate()
+    expected = 7
+    # Assert
+    self.assertEqual(actual, expected)
 
 
 
