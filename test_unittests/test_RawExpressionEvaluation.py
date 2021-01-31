@@ -65,3 +65,71 @@ class TestBinaryRawExpression(unittest.TestCase):
     # Assert
     self.assertEqual(actual, expected)
   
+class TestComplexRawExpression(unittest.TestCase):
+  def test_Evaluate_1Plus1Plus1_Returns_3(self):
+    # Arrange
+    entireExpression = RawExpression("1+1+1")
+    # Act
+    actual = entireExpression.evaluate()
+    expected = 3
+    # Assert
+    self.assertEqual(actual, expected)
+  
+  def test_Evaluate_1Plus1Plus1Plus1_Returns_4(self):
+    # Arrange
+    entireExpression = RawExpression("1+1+1+1")
+    # Act
+    actual = entireExpression.evaluate()
+    expected = 4
+    # Assert
+    self.assertEqual(actual, expected)
+  
+  def test_Evaluate_2Times2Plus3_Returns_7(self):
+    # Arrange
+    entireExpression = RawExpression("2*2+3")
+    # Act
+    actual = entireExpression.evaluate()
+    expected = 7
+    # Assert
+    self.assertEqual(actual, expected)
+  
+  def test_Evaluate_2Plus2Times3_Returns_8(self):
+    # Arrange
+    entireExpression = RawExpression("2+2*3")
+    # Act
+    actual = entireExpression.evaluate()
+    expected = 8
+    # Assert
+    self.assertEqual(actual, expected)
+  
+  def test_Evaluate_1Times2Times2Plus3_Returns_7(self):
+    # Arrange
+    entireExpression = RawExpression("1*2*2+3")
+    # Act
+    actual = entireExpression.evaluate()
+    expected = 7
+    # Assert
+    self.assertEqual(actual, expected)
+  
+  def test_Evaluate_1Times2Times2Minus3_Returns_1(self):
+    # Arrange
+    entireExpression = RawExpression("1*2*2-3")
+    # Act
+    actual = entireExpression.evaluate()
+    expected = 1
+    # Assert
+    self.assertEqual(actual, expected)
+  
+  def test_Evaluate_2TimesLParen2Plus3RParen_Returns_10(self):
+    # Arrange
+    entireExpression = RawExpression("2*(2+3)")
+    # Act
+    actual = entireExpression.evaluate()
+    expected = 10
+    # Assert
+    self.assertEqual(actual, expected)
+
+
+
+
+

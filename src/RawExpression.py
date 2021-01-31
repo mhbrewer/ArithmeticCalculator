@@ -5,26 +5,36 @@ class RawExpression:
   fullExpression = ""
   validator = Validator()
   factory = ExpressionFactory()
-  expressionHead = factory.CreateExpression(0)
+  expressionHead = None
 
   def isValid(self):
     return self.validator.isValidExpression(self.fullExpression)
 
   def evaluate(self):
+    if self.isValid() and (self.expressionHead is None):
+      self.buildExpressionTree()
     return self.expressionHead.evaluate()
   
   def buildExpressionTree(self):
-    if len(self.fullExpression) == 1:
-      self.expressionHead = self.factory.CreateExpression(self.fullExpression)
+    self.expressionHead = self.__buildExpressionTree(self.fullExpression)
+  
+  def __buildExpressionTree(self, expressionInput):
+    if len(expressionInput) == 1:
+      return self.factory.CreateExpression(expressionInput)
     else:
-      self.expressionHead = self.factory.CreateExpression(
-        self.factory.CreateExpression(self.fullExpression[0]), 
-        self.fullExpression[1], 
-        self.factory.CreateExpression(self.fullExpression[-1]))
+      breakPoint = self.findValidBreakpoint(expressionInput)
+      return self.factory.CreateExpression(
+        self.__buildExpressionTree(expressionInput[:breakPoint]), 
+        expressionInput[breakPoint], 
+        self.__buildExpressionTree(expressionInput[breakPoint+1:]))
+
+  def findValidBreakpoint(self, expressionInput):
+    for i in range(len(expressionInput)):
+      if expressionInput[i] == "+" or expressionInput[i] == "-":
+        return i
+    return 1
 
   def __init__(self, inputExpression):
     self.fullExpression = inputExpression
-    if self.isValid():
-      self.buildExpressionTree()
 
 
