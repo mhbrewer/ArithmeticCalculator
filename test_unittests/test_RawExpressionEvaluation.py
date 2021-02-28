@@ -183,7 +183,7 @@ class TestComplexRawExpression(unittest.TestCase):
     # Assert
     self.assertEqual(actual, expected)
   
-  def test_Evaluate_1ParentheticalPlus1_Returns_11(self):
+  def test_Evaluate_2ParentheticalPlus1_Returns_11(self):
     # Arrange
     entireExpression = RawExpression("2(2+3)+1")
     # Act
@@ -210,12 +210,21 @@ class TestComplexRawExpression(unittest.TestCase):
     # Assert
     self.assertEqual(actual, expected)
   
-  def test_Evaluate_ParentheticalParentheticalPlus1_Returns_11(self):
+  def test_Evaluate_1PlusParentheticalParenthetical_Returns_11(self):
     # Arrange
     entireExpression = RawExpression("1+(1+1)(2+3)")
     # Act
     actual = entireExpression.evaluate()
     expected = 11
+    # Assert
+    self.assertEqual(actual, expected)
+  
+  def test_Evaluate_MiscellaneousComplexExpression_Returns_24(self):
+    # Arrange
+    entireExpression = RawExpression("3*((2+3)-4)*(2+1)(1+1)+5+2/2")
+    # Act
+    actual = entireExpression.evaluate()
+    expected = 24
     # Assert
     self.assertEqual(actual, expected)
 

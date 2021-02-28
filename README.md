@@ -3,12 +3,9 @@ Author: Mason Brewer
 
 Simple Arithmetic Calculator, practice project.
 
-Planned Functionality:
+Functionality:
   A console app where the user enters in an expression such as:
       2*3+(9/3)^2
   And the app with evaluate the expression, in this case returning 15.
 
-Needs:
-  1. (More) Error + edge testing
-  2. Expression Evaluation
-  3. Console interface
+All that is left is making the UI.
