@@ -179,6 +179,6 @@ class RawExpression:
     return hasOpenedParen
 
   def __init__(self, inputExpression):
-    self.fullExpression = inputExpression
+    self.fullExpression = inputExpression.replace(" ", "")
 
 

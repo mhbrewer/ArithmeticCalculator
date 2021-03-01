@@ -227,6 +227,15 @@ class TestComplexRawExpression(unittest.TestCase):
     expected = 24
     # Assert
     self.assertEqual(actual, expected)
+  
+  def test_Evaluate_MiscellaneousComplexExpressionWithSpaces_Returns_24(self):
+    # Arrange
+    entireExpression = RawExpression("3* (    (2+3)-4)*(2+1)(1+1)+5+2/ 2")
+    # Act
+    actual = entireExpression.evaluate()
+    expected = 24
+    # Assert
+    self.assertEqual(actual, expected)
 
 
 
